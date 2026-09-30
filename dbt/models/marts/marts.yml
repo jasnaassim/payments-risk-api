@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_daily_merchant_metrics
+    description: Daily volume, decline, refund and dispute rates per merchant.
+    columns:
+      - name: metric_date
+        tests: [not_null]
+      - name: merchant_id
+        tests: [not_null]
+  - name: dim_merchant_risk
+    description: Merchant-level risk profile with a high-risk flag.
+    columns:
+      - name: merchant_id
+        tests: [unique, not_null]

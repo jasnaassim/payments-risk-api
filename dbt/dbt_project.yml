@@ -1,0 +1,19 @@
+name: payments_risk
+version: "1.0.0"
+config-version: 2
+profile: payments_risk
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+vars:
+  # Illustrative threshold for flagging merchants; tune for your use case.
+  high_risk_dispute_rate: 0.01
+  min_transactions_for_flag: 50
+
+models:
+  payments_risk:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
